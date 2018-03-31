@@ -20,8 +20,8 @@ const db = require('knex')({
 })
 
 const app = express()
-app.use(bodyParser.json())
 app.use(cors())
+app.use(bodyParser.json())
 
 app.get('/', (req, res) => root.handleRoot(req, res))
 app.post('/signin', (req, res) => signin.handleSignin(req, res, db, bcrypt))
