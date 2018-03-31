@@ -1,8 +1,5 @@
-const handleRoot = (req, res, db) => {
-  db.select().from('users')
-    .then(users => {
-      res.json(users);
-    })
+const handleRoot = (req, res) => {
+  res.send('The API is working!')
 }
 
 module.exports = {
