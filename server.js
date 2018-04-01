@@ -9,30 +9,7 @@ const profile = require('./controllers/profile')
 const image = require('./controllers/image')
 const root = require('./controllers/root')
 
-let db = null
-
-if (process.env.DATABASE_URL) {
-  db = require('knex')({
-    client: 'pg',
-    connection: {
-      connectionString: process.env.DATABASE_URL,
-      ssl: true,
-    }
-  })
-} else {
-  db = require('knex')({
-    client: 'pg',
-    connection: {
-      host: '127.0.0.1',
-      user: 'joffrey',
-      password: 'hello',
-      database: 'smart-brain'
-    }
-  })
-}
-
-
-
+const db = require('./utils/database').database
 
 const app = express()
 app.use(cors())
